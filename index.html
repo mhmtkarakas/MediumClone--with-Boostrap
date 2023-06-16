@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Medium</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="bg-yellow border-bottom-dark py-1 fixed-top">
+      <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#"
+              ><img
+                class="med-img"
+                src="data:image/png;base64,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"
+                alt=""
+              />
+              <strong>Medium</strong>
+            </a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+              aria-controls="navbarNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#"
+                    >Home</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#"
+                    >Our Story</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Membership</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Write</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">SignIn</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link btn-start text-light ms-4" href="#"
+                    >Get Started</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div></div>
+    </div>
+
+    <div class="bg-yellow mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-6 mt-5">
+            <h1 class="display-1 mt-2">Stay curious.</h1>
+            <p class="mt-5 lead p-lead">
+              <strong
+                >Discover stories, thinking, and expertise <br />
+                from writers on any topic.</strong
+              >
+            </p>
+            <a href="#" class="btn-sub my-5" type="submit">Start reading</a>
+          </div>
+          <div class="col-6">
+            <div class="d-flex justify-content-end">
+              <img
+                src="https://picsum.photos/350/350"
+                alt=""
+                class="rounded-circle mt-5"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-12">
+          <h6>
+            <strong
+              ><i class="fa-solid fa-arrow-trend-up me-2"></i> Trending on
+              Medium</strong
+            >
+          </h6>
+        </div>
+        <article class="col-sm-4 mt-4 mb-2">
+          <div class="row">
+            <div class="col-1">
+              <h1 class="text-black-50"><strong>01</strong></h1>
+            </div>
+            <div class="col-11">
+              <img
+                class="rounded-circle ms-4"
+                src="https://picsum.photos/id/11/25/25"
+                alt=""
+              />
+              <span>Adam Smith</span>
+              <h5 class="mt-2 ms-4">
+                <strong
+                  >My First Immersion in Apple Vision Pro: Heavy, Man!</strong
+                >
+              </h5>
+              <ul class="list-inline small ms-4">
+                <li class="list-inline-item">Jun 7·</li>
+                <li class="list-inline-item">16 min read</li>
+                <li class="list-inline-item">
+                  <i class="fa-regular fa-star"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+        <article class="col-sm-4 mt-4 mb-2">
+          <div class="row">
+            <div class="col-1">
+              <h1 class="text-black-50"><strong>02</strong></h1>
+            </div>
+            <div class="col-11">
+              <img
+                class="rounded-circle ms-4"
+                src="https://picsum.photos/id/12/25/25"
+                alt=""
+              />
+              <span>ASUS BUTTERFLY in ZORA</span>
+              <h5 class="mt-2 ms-4">
+                <strong
+                  >The Emergence of The Blueprint IV: Blue Ivy Carter</strong
+                >
+              </h5>
+              <ul class="list-inline small ms-4">
+                <li class="list-inline-item">May 30·</li>
+                <li class="list-inline-item">8 min read</li>
+                <li class="list-inline-item">
+                  <i class="fa-regular fa-star"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+        <article class="col-sm-4 mt-4 mb-2">
+          <div class="row">
+            <div class="col-1">
+              <h1 class="text-black-50"><strong>03</strong></h1>
+            </div>
+            <div class="col-11">
+              <img
+                class="rounded-circle ms-4"
+                src="https://picsum.photos/id/13/25/25"
+                alt=""
+              />
+              <span>Markham Heid in THE NUANCE</span>
+              <h5 class="mt-2 ms-4">
+                <strong
+                  >Why Midlife Is Going to Be Especially Hard On
+                  Millennials</strong
+                >
+              </h5>
+              <ul class="list-inline small ms-4">
+                <li class="list-inline-item">May 30·</li>
+                <li class="list-inline-item">5 min read</li>
+                <li class="list-inline-item">
+                  <i class="fa-regular fa-star"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+        <article class="col-sm-4 mt-4 mb-2">
+          <div class="row">
+            <div class="col-1">
+              <h1 class="text-black-50"><strong>04</strong></h1>
+            </div>
+            <div class="col-11">
+              <img
+                class="rounded-circle ms-4"
+                src="https://picsum.photos/id/14/25/25"
+                alt=""
+              />
+              <span>Courtney Kirschbaum in Writers’ Blokke</span>
+              <h5 class="mt-2 ms-4">
+                <strong>A Recruiter Actually Said This to Me</strong>
+              </h5>
+              <ul class="list-inline small ms-4">
+                <li class="list-inline-item">Jun 7·</li>
+                <li class="list-inline-item">4 min read</li>
+                <li class="list-inline-item">
+                  <i class="fa-regular fa-star"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+        <article class="col-sm-4 mt-4 mb-2">
+          <div class="row">
+            <div class="col-1">
+              <h1 class="text-black-50"><strong>05</strong></h1>
+            </div>
+            <div class="col-11">
+              <img
+                class="rounded-circle ms-4"
+                src="https://picsum.photos/id/15/25/25"
+                alt=""
+              />
+              <span>Linda Caroll in Middle-Pause</span>
+              <h5 class="mt-2 ms-4">
+                <strong
+                  >No One Really Tells You The Hardest Part Of Getting
+                  Older</strong
+                >
+              </h5>
+              <ul class="list-inline small ms-4">
+                <li class="list-inline-item">May 29 ·</li>
+                <li class="list-inline-item">7 min read</li>
+                <li class="list-inline-item">
+                  <i class="fa-regular fa-star"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+        <article class="col-sm-4 mt-4 mb-2">
+          <div class="row">
+            <div class="col-1">
+              <h1 class="text-black-50"><strong>06</strong></h1>
+            </div>
+            <div class="col-11">
+              <img
+                class="rounded-circle ms-4"
+                src="https://picsum.photos/id/16/25/25"
+                alt=""
+              />
+              <span> Scott Galloway </span>
+              <h5 class="mt-2 ms-4"><strong>Isn’t That Spatial?</strong></h5>
+              <ul class="list-inline small ms-4">
+                <li class="list-inline-item">Jun 10 ·</li>
+                <li class="list-inline-item">8 min read</li>
+                <li class="list-inline-item">
+                  <i class="fa-regular fa-star"></i>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+      <!-- Alt Kisim -->
+      <div class="border-top-dark mt-5">
+        <div class="container mt-5">
+          <div class="row">
+            <section class="col-sm-8">
+              <article class="row mb-3">
+                <div class="col-8">
+                  <img
+                    class="rounded-circle"
+                    src="https://picsum.photos/id/11/25/25"
+                    alt=""
+                  />
+                  <span class="mt-2 ms-2">Eric Weiner</span>
+                  <h5 class="mt-2">
+                    <strong
+                      >My First Immersion in Apple Vision Pro: Heavy, Man!</strong
+                    >
+                  </h5>
+                  <p class="text-muted">
+                    Unmasking the Pain: The Reality of Stress and Depression Among
+                    Black Men in Fatherhood
+                  </p>
+                  <ul class="list-inline small text-muted">
+                    <li class="list-inline-item">Jun 10 ·</li>
+                    <li class="list-inline-item">8 min read</li>
+                    <li class="list-inline-item">
+                      <i class="fa-regular fa-star"></i>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-4">
+                  <img src="https://picsum.photos/400/250" alt="" class="w-100" />
+                </div>
+              </article>
+              <article class="row mb-3">
+                <div class="col-8">
+                  <img
+                    class="rounded-circle"
+                    src="https://picsum.photos/id/11/25/25"
+                    alt=""
+                  />
+                  <span class="mt-2 ms-2">Eric Weiner</span>
+                  <h5 class="mt-2">
+                    <strong
+                      >My First Immersion in Apple Vision Pro: Heavy, Man!</strong
+                    >
+                  </h5>
+                  <p class="text-muted">
+                    Unmasking the Pain: The Reality of Stress and Depression Among
+                    Black Men in Fatherhood
+                  </p>
+                  <ul class="list-inline small text-muted">
+                    <li class="list-inline-item">Jun 10 ·</li>
+                    <li class="list-inline-item">8 min read</li>
+                    <li class="list-inline-item">
+                      <i class="fa-regular fa-star"></i>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-4">
+                  <img
+                    src="https://picsum.photos/id/23/400/250"
+                    alt=""
+                    class="w-100"
+                  />
+                </div>
+              </article>
+              <article class="row mb-3">
+                <div class="col-8">
+                  <img
+                    class="rounded-circle"
+                    src="https://picsum.photos/id/11/25/25"
+                    alt=""
+                  />
+                  <span class="mt-2 ms-2">Eric Weiner</span>
+                  <h5 class="mt-2">
+                    <strong
+                      >My First Immersion in Apple Vision Pro: Heavy, Man!</strong
+                    >
+                  </h5>
+                  <p class="text-muted">
+                    Unmasking the Pain: The Reality of Stress and Depression Among
+                    Black Men in Fatherhood
+                  </p>
+                  <ul class="list-inline small text-muted">
+                    <li class="list-inline-item">Jun 10 ·</li>
+                    <li class="list-inline-item">8 min read</li>
+                    <li class="list-inline-item">
+                      <i class="fa-regular fa-star"></i>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-4">
+                  <img
+                    src="https://picsum.photos/id/22/400/250"
+                    alt=""
+                    class="w-100"
+                  />
+                </div>
+              </article>
+              <article class="row mb-3">
+                <div class="col-8">
+                  <img
+                    class="rounded-circle"
+                    src="https://picsum.photos/id/11/25/25"
+                    alt=""
+                  />
+                  <span class="mt-2 ms-2">Eric Weiner</span>
+                  <h5 class="mt-2">
+                    <strong
+                      >My First Immersion in Apple Vision Pro: Heavy, Man!</strong
+                    >
+                  </h5>
+                  <p class="text-muted">
+                    Unmasking the Pain: The Reality of Stress and Depression Among
+                    Black Men in Fatherhood
+                  </p>
+                  <ul class="list-inline small text-muted">
+                    <li class="list-inline-item">Jun 10 ·</li>
+                    <li class="list-inline-item">8 min read</li>
+                    <li class="list-inline-item">
+                      <i class="fa-regular fa-star"></i>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-4">
+                  <img
+                    src="https://picsum.photos/id/18/400/250"
+                    alt=""
+                    class="w-100"
+                  />
+                </div>
+              </article>
+              <article class="row mb-3">
+                <div class="col-8">
+                  <img
+                    class="rounded-circle"
+                    src="https://picsum.photos/id/11/25/25"
+                    alt=""
+                  />
+                  <span class="mt-2 ms-2">Eric Weiner</span>
+                  <h5 class="mt-2">
+                    <strong
+                      >My First Immersion in Apple Vision Pro: Heavy, Man!</strong
+                    >
+                  </h5>
+                  <p class="text-muted">
+                    Unmasking the Pain: The Reality of Stress and Depression Among
+                    Black Men in Fatherhood
+                  </p>
+                  <ul class="list-inline small text-muted">
+                    <li class="list-inline-item">Jun 10 ·</li>
+                    <li class="list-inline-item">8 min read</li>
+                    <li class="list-inline-item">
+                      <i class="fa-regular fa-star"></i>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-4">
+                  <img
+                    src="https://picsum.photos/id/24/400/250"
+                    alt=""
+                    class="w-100"
+                  />
+                </div>
+              </article>
+            </section>
+            <aside class="col-sm-4 mt-4">
+              <h6><strong>Discover more of what matters to you</strong></h6>
+              <ul class="list-inline small aside-buttons mt-3">
+                <li class="list-inline-item">
+                  <a href="#" class="btn-link" type="button">Programming</a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" class="btn-link" type="button">Data Science</a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="" class="btn-link" type="button">Technology</a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="" class="btn-link" type="button">Self Improvement</a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="" class="btn-link" type="button">Writing</a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" class="btn-link" type="button">Relationships</a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" class="btn-link" type="button">Machine Learning</a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" class="btn-link" type="button">Productivity</a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="#" class="btn-link" type="button">Politics</a>
+                </li>
+              </ul>
+              <h5 class="text-topic my-5">See more topics</h5>
+              <hr />
+              <div class="text-list">
+                <ul class="list-inline mt-5">
+                  <li class="list-inline-item"><a href="">Help</a></li>
+                  <li class="list-inline-item mx-4"><a href=""> Status</a></li>
+                  <li class="list-inline-item mx-4"><a href="">Writers</a></li>
+                  <li class="list-inline-item mx-4"><a href="">Blog</a></li>
+                  <li class="list-inline-item"><a href="">Careers</a></li>
+                  <li class="list-inline-item"><a href="">Privacy</a></li>
+                  <li class="list-inline-item mx-4"><a href="">Terms</a></li>
+                  <li class="list-inline-item mx-4"><a href="">About</a></li>
+                  <li class="list-inline-item mx-4">
+                    <a href="">Text to speech</a>
+                  </li>
+                  <li class="list-inline-item"><a href="">Teams</a></li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </div>
+       
+      </div>
+    
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
